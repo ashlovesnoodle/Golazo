@@ -81,7 +81,7 @@ export default function SocialApp({ platform, url }: SocialAppProps) {
                 onClick={handleOpen}
               >
                 <img
-                  src={post.image}
+                  src={sanitizeAsset(post.image)}
                   alt={post.caption}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />

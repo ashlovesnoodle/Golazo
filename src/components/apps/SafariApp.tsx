@@ -31,7 +31,7 @@ export default function SafariApp() {
   const activeTab = tabs.find((t) => t.id === activeTabId) || tabs[0];
 
   useEffect(() => {
-    setDisplayUrl(activeTab.url);
+    setDisplayUrl(sanitizeAsset(activeTab.url));
   }, [activeTab.id, activeTab.url]);
 
   const updateTab = (tabId: string, updates: Partial<Tab>) => {
@@ -233,7 +233,7 @@ export default function SafariApp() {
         <iframe
           ref={iframeRef}
           key={`${activeTabId}-${activeTab.url}`}
-          src={activeTab.url}
+          src={sanitizeAsset(activeTab.url)}
           className="w-full h-full border-none"
           title={`Safari - ${activeTab.title}`}
           onLoad={() => {

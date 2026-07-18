@@ -338,14 +338,14 @@ export default function FinderApp() {
               <div className="w-full aspect-square max-w-[200px] mx-auto rounded-lg overflow-hidden shadow-lg cursor-pointer hover:opacity-90 transition-opacity"
                    onClick={() => openViewer(selectedItem)}>
                 {isVideoFile(selectedItem.image) ? (
-                  <VideoThumbnail src={selectedItem.image} alt={selectedItem.title} className="w-full h-full object-contain" />
-                ) : (
-                  <img 
-                    src={selectedItem.image} 
-                    alt={selectedItem.title}
-                    className="w-full h-full object-contain"
-                  />
-                )}
+                    <VideoThumbnail src={sanitizeAsset(selectedItem.image)} alt={selectedItem.title} className="w-full h-full object-contain" />
+                  ) : (
+                    <img 
+                      src={sanitizeAsset(selectedItem.image)} 
+                      alt={selectedItem.title}
+                      className="w-full h-full object-contain"
+                    />
+                  )}
               </div>
               
               {/* File info */}

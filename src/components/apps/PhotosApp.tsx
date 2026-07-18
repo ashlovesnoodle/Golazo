@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { galleryImages } from '../../data/portfolioData';
+import { sanitizeAsset } from '../../utils/asset';
 import { X, ChevronLeft, ChevronRight, Grid, Image } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -74,7 +75,7 @@ export default function PhotosApp() {
               onClick={() => openLightbox(i)}
             >
               <img
-                src={img.url}
+                src={sanitizeAsset(img.url)}
                 alt={img.caption || ''}
                 className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
@@ -131,7 +132,7 @@ export default function PhotosApp() {
               key={lightboxIndex}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              src={filtered[lightboxIndex].url}
+              src={sanitizeAsset(filtered[lightboxIndex].url)}
               alt={filtered[lightboxIndex].caption || ''}
               className="max-h-[80%] max-w-[80%] rounded-xl object-contain"
               onClick={(e) => e.stopPropagation()}

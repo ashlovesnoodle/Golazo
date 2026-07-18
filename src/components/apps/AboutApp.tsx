@@ -127,7 +127,7 @@ export default function AboutApp() {
       <div className="flex flex-col items-center pt-10 pb-6">
         <div className="w-24 h-24 rounded-full overflow-hidden ring-4 ring-white/10 shadow-2xl mb-4">
           <img 
-            src={profile.avatar} 
+            src={sanitizeAsset(profile.avatar)}
             alt={profile.name} 
             className="w-full h-full object-cover" 
           />

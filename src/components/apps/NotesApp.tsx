@@ -78,7 +78,7 @@ export default function NotesApp() {
           <>
             {selected.coverImage && (
               <div className="mb-6 rounded-xl overflow-hidden h-48">
-                <img src={selected.coverImage} alt="" className="w-full h-full object-cover" />
+                <img src={sanitizeAsset(selected.coverImage)} alt="" className="w-full h-full object-cover" />
               </div>
             )}
             <div className="flex items-center justify-between mb-4">

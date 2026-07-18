@@ -327,9 +327,9 @@ export default function PhotoViewer({ items, initialIndex, onClose, initialScale
                 }`}
               >
                 {isVideo ? (
-                  <VideoThumbnail src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  <VideoThumbnail src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover" />
                 ) : (
-                  <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                  <img src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover" />
                 )}
               </motion.button>
             );

@@ -41,8 +41,8 @@ export default function VideoThumbnail({ src, alt, className = '', seekToTime }:
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('seeked', handleSeeked);
 
-    // Load video
-    video.src = src;
+    // Load video (sanitize URL to handle spaces/special chars)
+    video.src = encodeURI(src);
     video.load();
 
     return () => {

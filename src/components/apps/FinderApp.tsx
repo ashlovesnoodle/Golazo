@@ -40,13 +40,15 @@ const FolderIcon = ({ isOpen = false }: { isOpen?: boolean }) => (
 );
 
 // Thumbnail component for icon view
+import { sanitizeAsset } from '../../utils/asset';
+
 const ThumbnailIcon = ({ src, title }: { src: string; title: string }) => (
   <div className="w-full h-full rounded-lg overflow-hidden shadow-md bg-gray-100">
     {isVideoFile(src) ? (
-      <VideoThumbnail src={src} alt={title} className="w-full h-full object-cover" />
+      <VideoThumbnail src={sanitizeAsset(src)} alt={title} className="w-full h-full object-cover" />
     ) : (
       <img 
-        src={src} 
+        src={sanitizeAsset(src)} 
         alt={title}
         className="w-full h-full object-cover"
         loading="lazy"
@@ -59,10 +61,10 @@ const ThumbnailIcon = ({ src, title }: { src: string; title: string }) => (
 const ListThumbnail = ({ src, title }: { src: string; title: string }) => (
   <div className="w-full h-full rounded overflow-hidden bg-gray-100">
     {isVideoFile(src) ? (
-      <VideoThumbnail src={src} alt={title} className="w-full h-full object-cover" />
+      <VideoThumbnail src={sanitizeAsset(src)} alt={title} className="w-full h-full object-cover" />
     ) : (
       <img 
-        src={src} 
+        src={sanitizeAsset(src)} 
         alt={title}
         className="w-full h-full object-cover"
         loading="lazy"

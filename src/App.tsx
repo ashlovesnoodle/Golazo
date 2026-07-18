@@ -17,6 +17,7 @@ import SafariApp from './components/apps/SafariApp';
 import MacOSPreloader from './components/MacOSPreloader';
 import { desktopItems, socialLinks, type DesktopItem } from './data/portfolioData';
 import { profile } from './data/portfolioData';
+import { sanitizeAsset } from './utils/asset';
 
 function getRandomizedDesktopItems(items: DesktopItem[]): DesktopItem[] {
   const shuffled = [...items];
@@ -173,7 +174,7 @@ const TrashIcon = ({ full }: { full?: boolean }) => (
 
 const AboutIcon = () => (
   <div className="w-full h-full rounded-[22%] flex items-center justify-center overflow-hidden" style={{ background: 'linear-gradient(145deg, #1a1a2e 0%, #16213e 100%)' }}>
-    <img src={profile.avatar} alt="" className="w-full h-full object-cover opacity-80" />
+          <img src={sanitizeAsset(profile.avatar)} alt="" className="w-full h-full object-cover opacity-80" />
   </div>
 );
 

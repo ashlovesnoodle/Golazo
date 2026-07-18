@@ -1,0 +1,19 @@
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Finder icon">
+  <defs>
+    <linearGradient id="finderGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5AC8FA" />
+      <stop offset="100%" stop-color="#0A84FF" />
+    </linearGradient>
+    <linearGradient id="faceGradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#FFFFFF" />
+      <stop offset="100%" stop-color="#E8F4FF" />
+    </linearGradient>
+  </defs>
+  <rect width="120" height="120" rx="28" fill="url(#finderGradient)" />
+  <rect x="16" y="18" width="88" height="84" rx="22" fill="url(#faceGradient)" />
+  <path d="M24 62 C24 42 44 42 44 62 S24 82 24 62 Z" fill="#007AFF" opacity="0.12" />
+  <circle cx="40" cy="50" r="4" fill="#0A84FF" />
+  <circle cx="80" cy="50" r="4" fill="#0A84FF" />
+  <path d="M40 80 C48 88 72 88 80 80" stroke="#0A84FF" stroke-width="5" fill="none" stroke-linecap="round" />
+  <path d="M20 40 C34 32 86 32 100 40" stroke="#0A84FF" stroke-width="10" fill="none" opacity="0.16" />
+</svg>

@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Download, Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import type { DesktopItem } from '../../data/portfolioData';
 import VideoThumbnail from '../VideoThumbnail';
+import { sanitizeAsset } from '../../utils/asset';
 
 interface PhotoViewerProps {
   items: DesktopItem[];
@@ -225,7 +226,7 @@ export default function PhotoViewer({ items, initialIndex, onClose, initialScale
               <div className="relative max-w-full max-h-[70vh]">
                 <video
                   ref={videoRef}
-                  src={currentItem?.image}
+                  src={sanitizeAsset(currentItem?.image ?? '')}
                   className="max-w-full max-h-[70vh] rounded-lg shadow-2xl"
                   autoPlay
                   playsInline
@@ -287,7 +288,7 @@ export default function PhotoViewer({ items, initialIndex, onClose, initialScale
             ) : (
               // Image viewer
               <img
-                src={currentItem?.image}
+                src={sanitizeAsset(currentItem?.image ?? '')}
                 alt={currentItem?.title}
                 className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl cursor-grab active:cursor-grabbing"
                 draggable={false}

@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, RotateCcw, Share2, Search, X, Plus, Pin } from 'lucide-react';
+import { sanitizeAsset } from '../../utils/asset';
 
 interface Tab {
   id: string;

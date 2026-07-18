@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { ExternalLink, Heart, MessageCircle, Share2, Users, Grid } from 'lucide-react';
 import { galleryImages, profile } from '../../data/portfolioData';
+import { sanitizeAsset } from '../../utils/asset';
 
 interface SocialAppProps {
   platform: 'instagram' | 'twitter' | 'linkedin';

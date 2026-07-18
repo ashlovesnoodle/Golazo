@@ -385,7 +385,7 @@ export default function App() {
       {/* Desktop background — blurred portrait */}
       <div className="absolute inset-0">
         <img
-          src={profile.backgroundImage}
+          src={sanitizeAsset(profile.backgroundImage)}
           alt="background"
           className="w-full h-full object-cover object-top"
           style={{ filter: 'blur(0px) brightness(0.45) saturate(0.8)' }}

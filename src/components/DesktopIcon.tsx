@@ -89,12 +89,12 @@ export default function DesktopIcon({ item, onClick, onPositionChange }: Desktop
       >
         {isVideoFile(item.image) ? (
           item.thumbnail ? (
-            <img src={sanitizeAsset(item.thumbnail)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" />
+            <img src={sanitizeAsset(item.thumbnail)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" loading="lazy" />
           ) : (
             <VideoThumbnail src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" seekToTime={item.seekToTime} />
           )
         ) : (
-          <img src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" />
+            <img src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" loading="lazy" />
         )}
         {/* macOS-style subtle border highlight */}
         <div className="absolute inset-0 rounded-xl border border-white/10 pointer-events-none" />

@@ -99,7 +99,6 @@ export default function PhotosApp() {
         )}
       </div>
 
-      {/* Lightbox */}
       <AnimatePresence>
         {lightboxIndex !== null && (
           <motion.div
@@ -108,7 +107,7 @@ export default function PhotosApp() {
             exit={{ opacity: 0 }}
             className="absolute inset-0 bg-black/95 flex items-center justify-center z-50"
             onClick={closeLightbox}
-          >
+              >
             <button
               onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
               className="absolute top-4 right-4 w-8 h-8 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"

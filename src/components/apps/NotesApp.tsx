@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { blogPosts, type BlogPost } from '../../data/portfolioData';
+import { sanitizeAsset } from '../../utils/asset';
 import { Search, Plus, ChevronRight } from 'lucide-react';
 
 export default function NotesApp() {

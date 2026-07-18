@@ -12,6 +12,8 @@ export default function VideoThumbnail({ src, alt, className = '', seekToTime }:
   const [isLoading, setIsLoading] = useState(true);
   const videoRef = useRef<HTMLVideoElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -22,26 +24,24 @@ export default function VideoThumbnail({ src, alt, className = '', seekToTime }:
     if (!ctx) return;
 
     const handleLoadedMetadata = () => {
-      // seek to specified time, or start if not provided
       video.currentTime = seekToTime ?? 0;
     };
 
     const handleSeeked = () => {
-      // Draw frame to canvas
       canvas.width = video.videoWidth || 320;
       canvas.height = video.videoHeight || 240;
       ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-
-      // Convert to data URL
       const dataUrl = canvas.toDataURL('image/jpeg', 0.8);
       setThumbnail(dataUrl);
       setIsLoading(false);
     };
 
+    // Only load video when component is visible
+    if (!isVisible) return;
+
     video.addEventListener('loadedmetadata', handleLoadedMetadata);
     video.addEventListener('seeked', handleSeeked);
 
-    // Load video (sanitize URL to handle spaces/special chars)
     video.src = encodeURI(src);
     video.load();
 
@@ -49,13 +49,34 @@ export default function VideoThumbnail({ src, alt, className = '', seekToTime }:
       video.removeEventListener('loadedmetadata', handleLoadedMetadata);
       video.removeEventListener('seeked', handleSeeked);
     };
-  }, [src, seekToTime]);
+  }, [src, seekToTime, isVisible]);
 
+
+  // Intersection observer to set visibility
+  useEffect(() => {
+    const node = wrapperRef.current;
+    if (!node || typeof IntersectionObserver === 'undefined') {
+      setIsVisible(true);
+      return;
+    }
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          obs.disconnect();
+        }
+      });
+    }, { rootMargin: '200px' });
+    obs.observe(node);
+    return () => obs.disconnect();
+  }, []);
   return (
     <>
       {/* Hidden video and canvas for processing */}
-      <video ref={videoRef} className="hidden" preload="metadata" crossOrigin="anonymous" />
-      <canvas ref={canvasRef} className="hidden" />
+      <div ref={wrapperRef} className="hidden">
+        <video ref={videoRef} className="hidden" preload="metadata" crossOrigin="anonymous" />
+        <canvas ref={canvasRef} className="hidden" />
+      </div>
       
       {/* Display thumbnail or loading state */}
       {isLoading ? (

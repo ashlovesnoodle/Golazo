@@ -1,5 +1,6 @@
 import React from 'react';
 import { profile, socialLinks } from '../../data/portfolioData';
+import { sanitizeAsset } from '../../utils/asset';
 import { ExternalLink, Mail, MapPin, Link2, User } from 'lucide-react';
 
 const socialIcons: Record<string, React.ReactElement> = {

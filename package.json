@@ -11,7 +11,8 @@
     "build": "vite build",
     "vercel-build": "node ./node_modules/vite/bin/vite.js build",
     "preview": "vite preview",
-    "scan-media": "node scripts/scan-media.js"
+    "scan-media": "node scripts/scan-media.js",
+    "generate-thumbnails": "node scripts/generate-thumbs.cjs"
   },
   "dependencies": {
     "clsx": "2.1.1",

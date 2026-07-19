@@ -225,6 +225,7 @@ export const desktopItems: DesktopItem[] = [
     description: 'Uploaded video',
     x: 50,
     y: 50,
+    seekToTime: 1,
   },
   {
     id: '19',

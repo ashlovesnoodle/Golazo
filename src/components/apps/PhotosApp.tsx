@@ -3,6 +3,7 @@ import { galleryImages } from '../../data/portfolioData';
 import { sanitizeAsset } from '../../utils/asset';
 import { X, ChevronLeft, ChevronRight, Grid, Image } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import OptimizedImage from '../OptimizedImage';
 
 const isVideoFile = (url: string) => /\.(mp4|mov|avi|webm|mkv)$/i.test(url);
 const photosOnly = galleryImages.filter((img) => !isVideoFile(img.url));
@@ -74,10 +75,11 @@ export default function PhotosApp() {
               }`}
               onClick={() => openLightbox(i)}
             >
-              <img
+              <OptimizedImage
                 src={sanitizeAsset(img.url)}
                 alt={img.caption || ''}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 bg-gray-800"
+                priority={i < 6 ? 'high' : 'low'}
               />
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-colors duration-200" />
               {img.caption && (
@@ -127,15 +129,20 @@ export default function PhotosApp() {
               <ChevronRight size={20} className="text-white" />
             </button>
 
-            <motion.img
+            <motion.div
               key={lightboxIndex}
               initial={{ scale: 0.95, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              src={sanitizeAsset(filtered[lightboxIndex].url)}
-              alt={filtered[lightboxIndex].caption || ''}
-              className="max-h-[80%] max-w-[80%] rounded-xl object-contain"
+              className="max-h-[80%] max-w-[80%]"
               onClick={(e) => e.stopPropagation()}
-            />
+            >
+              <OptimizedImage
+                src={sanitizeAsset(filtered[lightboxIndex].url)}
+                alt={filtered[lightboxIndex].caption || ''}
+                className="max-h-[80%] max-w-[80%] rounded-xl object-contain bg-gray-900"
+                priority="high"
+              />
+            </motion.div>
 
             {filtered[lightboxIndex].caption && (
               <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-center">

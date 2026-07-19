@@ -3,7 +3,7 @@ import { motion, useMotionValue } from 'framer-motion';
 import { type DesktopItem } from '../data/portfolioData';
 import VideoThumbnail from './VideoThumbnail';
 import { sanitizeAsset } from '../utils/asset';
-
+import OptimizedImage from './OptimizedImage';
 interface DesktopIconProps {
   item: DesktopItem;
   onClick: (item: DesktopItem) => void;
@@ -89,12 +89,12 @@ export default function DesktopIcon({ item, onClick, onPositionChange }: Desktop
       >
         {isVideoFile(item.image) ? (
           item.thumbnail ? (
-            <img src={sanitizeAsset(item.thumbnail)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" loading="lazy" />
+            <OptimizedImage src={sanitizeAsset(item.thumbnail)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" priority="low" />
           ) : (
             <VideoThumbnail src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" seekToTime={item.seekToTime} />
           )
         ) : (
-            <img src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" loading="lazy" />
+            <OptimizedImage src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover pointer-events-none select-none" draggable="false" priority="low" />
         )}
         {/* macOS-style subtle border highlight */}
         <div className="absolute inset-0 rounded-xl border border-white/10 pointer-events-none" />

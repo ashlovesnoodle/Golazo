@@ -4,6 +4,7 @@ import { X, ChevronLeft, ChevronRight, ZoomIn, ZoomOut, Download, Play, Pause, V
 import type { DesktopItem } from '../../data/portfolioData';
 import VideoThumbnail from '../VideoThumbnail';
 import { sanitizeAsset } from '../../utils/asset';
+import OptimizedImage from '../OptimizedImage';
 
 interface PhotoViewerProps {
   items: DesktopItem[];
@@ -287,11 +288,12 @@ export default function PhotoViewer({ items, initialIndex, onClose, initialScale
               </div>
             ) : (
               // Image viewer
-              <img
+              <OptimizedImage
                 src={sanitizeAsset(currentItem?.image ?? '')}
                 alt={currentItem?.title}
                 className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl cursor-grab active:cursor-grabbing"
                 draggable={false}
+                priority="high"
               />
             )}
             {/* Title below media */}
@@ -330,7 +332,7 @@ export default function PhotoViewer({ items, initialIndex, onClose, initialScale
                 {isVideo ? (
                   <VideoThumbnail src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover" />
                 ) : (
-                  <img src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover" />
+                  <OptimizedImage src={sanitizeAsset(item.image)} alt={item.title} className="w-full h-full object-cover" priority="low" />
                 )}
               </motion.button>
             );

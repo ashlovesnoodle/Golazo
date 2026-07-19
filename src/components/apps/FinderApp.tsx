@@ -41,17 +41,18 @@ const FolderIcon = ({ isOpen = false }: { isOpen?: boolean }) => (
 
 // Thumbnail component for icon view
 import { sanitizeAsset } from '../../utils/asset';
+import OptimizedImage from '../OptimizedImage';
 
 const ThumbnailIcon = ({ src, title }: { src: string; title: string }) => (
   <div className="w-full h-full rounded-lg overflow-hidden shadow-md bg-gray-100">
     {isVideoFile(src) ? (
       <VideoThumbnail src={sanitizeAsset(src)} alt={title} className="w-full h-full object-cover" />
     ) : (
-      <img 
+      <OptimizedImage 
         src={sanitizeAsset(src)} 
         alt={title}
         className="w-full h-full object-cover"
-        loading="lazy"
+        priority="low"
       />
     )}
   </div>
@@ -63,11 +64,11 @@ const ListThumbnail = ({ src, title }: { src: string; title: string }) => (
     {isVideoFile(src) ? (
       <VideoThumbnail src={sanitizeAsset(src)} alt={title} className="w-full h-full object-cover" />
     ) : (
-      <img 
+      <OptimizedImage 
         src={sanitizeAsset(src)} 
         alt={title}
         className="w-full h-full object-cover"
-        loading="lazy"
+        priority="low"
       />
     )}
   </div>

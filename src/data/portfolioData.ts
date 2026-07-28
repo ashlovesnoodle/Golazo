@@ -302,6 +302,15 @@ export const blogPosts: BlogPost[] = [
       I will prolly write here pretty often so If you wanna read shit, You're welcome.`,
       coverImage: '/imgbbg.png',
     },
+    {
+      id: '2',
+      title: 'Holy New Blog!',
+      date: '2026-7-28',
+      excerpt: 'Working for school events is kinda a mess but fun',
+      content: `I have been an integral part of every event that has happened in my school since the 
+               dawn of time and 1 thing that I can take away from all this is that whatever you create, there is always something thats gonna be better.`,
+      coverImage: '/imgbbg.png',
+    },
 ];
 
 // ============================================================

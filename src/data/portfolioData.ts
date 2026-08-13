@@ -317,7 +317,7 @@ export const blogPosts: BlogPost[] = [
       date: '2026-8-14',
       excerpt: 'These music player websites are peak vibe',
       content: `This was such a experience, I made the website to play music loll. It is pretty fun and yeah if you wanna visit it the link is right here love - ashlvoesmusic.vercel.app . Till the next time, take care love!`,
-      coverImage: '/naw.png',
+      coverImage: '/Naw.png',
     },
 ];
 

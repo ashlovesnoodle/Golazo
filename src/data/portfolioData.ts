@@ -316,7 +316,7 @@ export const blogPosts: BlogPost[] = [
       title: 'Made a music player website thingie!',
       date: '2026-8-14',
       excerpt: 'These music player websites are peak vibe',
-      content: `This was such a experience, I made the website to play music loll. It is pretty fun and yeah if you wanna visit it the link is right here love - ashlvoesmusic.vercel.app . Till the next time, take care love!`,
+      content: `This was such a experience, I made the website to play music loll. It is pretty fun and yeah if you wanna visit it the link is right here love - ashlovesmusic.vercel.app . Till the next time, take care love!`,
       coverImage: '/Naw.png',
     },
 ];

@@ -309,7 +309,15 @@ export const blogPosts: BlogPost[] = [
       excerpt: 'Working for school events is kinda a mess but fun',
       content: `I have been an integral part of every event that has happened in my school since the 
                dawn of time and 1 thing that I can take away from all this is that whatever you create, there is always something thats gonna be better.`,
-      coverImage: '/imgbbg.png',
+      coverImage: '/WOW.png',
+    },
+    {
+      id: '3',
+      title: 'Made a music player website thingie!',
+      date: '2026-8-14',
+      excerpt: 'These music player websites are peak vibe',
+      content: `This was such a experience, I made the website to play music loll. It is pretty fun and yeah if you wanna visit it the link is right here love - ashlvoesmusic.vercel.app . Till the next time, take care love!`,
+      coverImage: '/naw.png',
     },
 ];
 

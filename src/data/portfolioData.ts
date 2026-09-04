@@ -319,6 +319,14 @@ export const blogPosts: BlogPost[] = [
       content: `This was such a experience, I made the website to play music loll. It is pretty fun and yeah if you wanna visit it the link is right here love - ashlovesmusic.vercel.app . Till the next time, take care love!`,
       coverImage: '/Naw.png',
     },
+     {
+      id: '4',
+      title: 'I MADE A GAME YALL!',
+      date: '2026-9-5',
+      excerpt: 'These 2d platformers had me drooling',
+      content: `This was genuinely soooo much fun, the game is like a medieval 2d platformer and follows the story of a knight forgotten by time, you'll can play the game here - ashlovesgame.vercel.app . Till the next time, take care love!`,
+      coverImage: '/imgbbg.png',
+    },
 ];
 
 // ============================================================

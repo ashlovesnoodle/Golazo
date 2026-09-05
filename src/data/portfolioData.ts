@@ -323,8 +323,8 @@ export const blogPosts: BlogPost[] = [
       id: '4',
       title: 'I MADE A GAME YALL!',
       date: '2026-9-5',
-      excerpt: 'These 2d platformers had me drooling',
-      content: `This was genuinely soooo much fun, the game is like a medieval 2d platformer and follows the story of a knight forgotten by time, you'll can play the game here - ashlovesgame.vercel.app . Till the next time, take care love!`,
+      excerpt: 'ITS NAME IS ASHFALL',
+      content: `This was genuinely soooo much fun, the game is like a medieval 2d platformer and follows the story of a knight forgotten by time, ITS GONNA BE UP ON STEAM SO DO WISHLIST IT, ITS NAME IS ASHFALL (I'm a narcassist, I'm sorry but the name would make sense if you play it) It's gonna be free ^_^ . Till the next time, take care love!`,
       coverImage: '/imgbbg.png',
     },
 ];
